@@ -1,3 +1,9 @@
+export interface SummaryResponse {
+  summary: string;
+  status: 'success' | 'error' | 'placeholder';
+}
+
+
 export async function generateSummary(url: string, title?: string) {
   const response = await fetch("/api/ai-summary", {
     method: "POST",
