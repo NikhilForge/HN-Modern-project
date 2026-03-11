@@ -20,7 +20,7 @@ export default function CommentThread({ commentIds }: CommentThreadProps) {
       try {
         setLoading(true);
         const fetchedComments = await getComments(commentIds);
-        setComments(fetchedComments as Comment[]);
+        setComments(fetchedComments as unknown as Comment[]);
       } catch (err) {
         setError('Failed to load comments');
         console.error(err);
@@ -83,7 +83,7 @@ function RenderComment({ comment, depth = 0 }: { comment: Comment; depth?: numbe
         try {
           setLoadingReplies(true);
           const fetchedReplies = await getComments(comment.kids);
-          setReplies(fetchedReplies as Comment[]);
+          setComments(fetchedComments as unknown as Comment[]);
         } catch (err) {
           console.error('Failed to load replies:', err);
         } finally {
