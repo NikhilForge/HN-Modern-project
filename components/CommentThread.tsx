@@ -83,7 +83,7 @@ function RenderComment({ comment, depth = 0 }: { comment: Comment; depth?: numbe
         try {
           setLoadingReplies(true);
           const fetchedReplies = await getComments(comment.kids);
-          setComments(fetchedComments as unknown as Comment[]);
+          setReplies(fetchedReplies as unknown as Comment[]);
         } catch (err) {
           console.error('Failed to load replies:', err);
         } finally {
